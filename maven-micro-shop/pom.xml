@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.atguigu</groupId>
+    <artifactId>maven-micro-shop</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <!-- 聚合的关系 -->
+    <modules>
+        <module>user-service</module>
+        <module>order-service</module>
+        <module>common-service</module>
+        <module>settings-demo</module>
+    </modules>  <!-- default value is jar -->
+
+    <properties>
+        <spring.version>6.1.12</spring.version>
+        <jackson.version>2.15.0</jackson.version>
+        <shiro.version>2.0.1</shiro.version>
+        <io.version>2.16.1</io.version>
+    </properties>
+
+    <dependencyManagement>
+        <!-- 此处为父工程，只是声明依赖，并不实际导入依赖 -->
+        <dependencies>
+            <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-core -->
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-core</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${io.version}</version>
+            </dependency>
+
+            <!-- 引入自己的工程 -->
+            <dependency>
+                <groupId>com.atguigu</groupId>
+                <artifactId>common-service</artifactId>
+                <version>1.0.1</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.atguigu</groupId>
+    <artifactId>maven-pom-parent-06</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <!-- 父工程的打包方式一般为 pom，也不写代码，把src/删掉 -->
+    <packaging>pom</packaging>
+
+    <!-- 聚合的配置，统一管理子工程的artifacts -->
+    <modules>
+        <module>shop-user</module>
+        <module>shop-order</module>
+        <module>shop-chat</module>
+    </modules>
+
+<!--    声明版本信息-->
+    <dependencies></dependencies>
+
+    <!-- 声明依赖，不会下载依赖，可以被子工程继承版本号 -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>8.0.33</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
